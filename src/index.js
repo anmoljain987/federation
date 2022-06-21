@@ -1,6 +1,6 @@
 const { ApolloServer } = require("apollo-server");
-const { ApolloGateway } = require("@apollo/gateway");
-const mongoose = require("mongoose");
+const { ApolloGateway, RemoteGraphQLDataSource } = require("@apollo/gateway");
+
 require("dotenv/config");
 
 const PORT = process.env.PORT || 2000;
@@ -9,9 +9,6 @@ const gateway = new ApolloGateway();
 
 const server = new ApolloServer({
   gateway,
-  cors: {
-    origin: ["https://todolist-graphql.vercel.app", "http://localhost:3000"],
-  },
   subscriptions: false,
 });
 mongoose
