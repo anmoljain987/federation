@@ -10,15 +10,14 @@ const gateway = new ApolloGateway({
   supergraphSdl: new IntrospectAndCompose({
     subgraphs: [
       { name: "detail", url: detailUrl },
-      // { name: "todo", url: todoUrl },
+      { name: "todo", url: todoUrl },
     ],
   }),
   buildService: ({ url }) => {
     return new RemoteGraphQLDataSource({
       url,
       willSendRequest({ request, context }) {
-        console.log(request);
-        request.http.headers.set("X-Uid", context.xUid ? context.Uid : null);
+        request.http.headers.set("X-Uid", context.xUid ? context.xUid : null);
         request.http.headers.set("X-Email", context.XEmail ? context.XEmail : null);
       },
     });
