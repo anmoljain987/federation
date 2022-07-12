@@ -44,7 +44,7 @@ const server = new ApolloServer({
     }
   },
   cors: {
-    origin: ["https://todolist-graphql.vercel.app", "http://localhost:3000"],
+    origin: ["https://todolist-graphql.vercel.app", "https://details-idea.herokuapp.com/"],
   },
 });
 
