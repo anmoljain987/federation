@@ -4,7 +4,7 @@ import { getUid } from "./firebasej/authMiddleware.js";
 import "dotenv/config";
 const todoUrl = process.env.TODO_URL;
 const detailUrl = process.env.DETAIL_URL;
-const PORT = process.env.PORT || 2002;
+const PORT = process.env.PORT || 2000;
 
 const gateway = new ApolloGateway({
   supergraphSdl: new IntrospectAndCompose({
