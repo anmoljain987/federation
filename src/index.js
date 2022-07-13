@@ -1,4 +1,4 @@
-import { ApolloServer } from "apollo-server";
+import { ApolloServer, AuthenticationError } from "apollo-server";
 import { ApolloGateway, IntrospectAndCompose, RemoteGraphQLDataSource } from "@apollo/gateway";
 import { getUid } from "./firebasej/authMiddleware.js";
 import "dotenv/config";
@@ -43,13 +43,13 @@ const server = new ApolloServer({
       console.log({ error });
     }
   },
-  cors: {
-    origin: [
-      "https://todolist-graphql.vercel.app",
-      "https://details-idea.herokuapp.com/",
-      "https://todo-list-anmol.herokuapp.com",
-    ],
-  },
+  // cors: {
+  //   origin: [
+  //     "https://todolist-graphql.vercel.app/",
+  //     "https://details-idea.herokuapp.com/",
+  //     "https://todo-list-anmol.herokuapp.com/",
+  //   ],
+  // },
 });
 
 server
